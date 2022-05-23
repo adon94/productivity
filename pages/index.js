@@ -1,15 +1,13 @@
 import Container from '@/components/container'
-import MoreStories from '@/components/more-stories'
-import HeroPost from '@/components/hero-post'
+// import MoreStories from '@/components/more-stories'
+// import HeroPost from '@/components/hero-post'
 import Intro from '@/components/intro'
 import Layout from '@/components/layout'
+import DemoForm from '@/components/demo-form'
 import { getAllPostsForHome } from '@/lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '@/lib/constants'
 import { initializeApp } from 'firebase/app';
-import { getFunctions, httpsCallable } from "firebase/functions";
-import 'firebase/auth';
-import 'firebase/functions';
 
 const config = {
   apiKey: "AIzaSyBn95PrrNn0tQv6Jc__PV38422Sxos7nTk",
@@ -22,10 +20,6 @@ const config = {
  }
  
 initializeApp(config);
- 
-//  export const app = firebase.app();
-//  export const auth = firebase.auth();
-export const functions = getFunctions();
 
 export default function Index({ allPosts }) {
   const heroPost = allPosts[0]
@@ -38,7 +32,8 @@ export default function Index({ allPosts }) {
         </Head>
         <Container>
           <Intro />
-          {heroPost && (
+          <DemoForm />
+          {/* {heroPost && (
             <HeroPost
               title={heroPost.title}
               coverImage={heroPost.metadata.cover_image}
@@ -48,7 +43,7 @@ export default function Index({ allPosts }) {
               excerpt={heroPost.metadata.excerpt}
             />
           )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
         </Container>
       </Layout>
     </>

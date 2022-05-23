@@ -1,4 +1,4 @@
-import Link from 'next/link'
+// import Link from 'next/link'
 
 export default function Intro() {
   return (
@@ -7,11 +7,12 @@ export default function Intro() {
         Thank Fish
       </h1>
       <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        <Link href={`/posts/create`}>
+            Demo
+        {/* <Link href={`/posts/create`}>
           <a className="underline hover:text-success duration-200 transition-colors">
-            Write a message...
+            Demo
           </a>
-        </Link>
+        </Link> */}
       </h4>
     </section>
   )
