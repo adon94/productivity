@@ -1,13 +1,8 @@
 import Container from '@/components/container'
-// import MoreStories from '@/components/more-stories'
-// import HeroPost from '@/components/hero-post'
-import Intro from '@/components/intro'
 import Layout from '@/components/layout'
-import DemoForm from '@/components/demo-form'
-import { getAllPostsForHome } from '@/lib/api'
 import Head from 'next/head'
-import { CMS_NAME } from '@/lib/constants'
 import { initializeApp } from 'firebase/app';
+import Link from 'next/link'
 
 const config = {
   apiKey: "AIzaSyBn95PrrNn0tQv6Jc__PV38422Sxos7nTk",
@@ -21,38 +16,24 @@ const config = {
  
 initializeApp(config);
 
-export default function Index({ allPosts }) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+export default function Index() {
   return (
     <>
       <Layout>
         <Head>
           <title>Thank Fish Demo</title>
         </Head>
-        <Container>
-          <Intro />
-          <DemoForm />
-          {/* {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.metadata.cover_image}
-              date={heroPost.created_at}
-              author={heroPost.metadata.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.metadata.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
+        <Container sm>
+          <ul>
+            <li>
+              <Link href="/journal">Introspect</Link>
+            </li>
+            <li>
+              <Link href="/productivity">Pomo timer</Link>
+            </li>
+          </ul>
         </Container>
       </Layout>
     </>
   )
-}
-
-export async function getStaticProps({ preview }) {
-  const allPosts = (await getAllPostsForHome(preview)) || []
-  return {
-    props: { allPosts },
-  }
 }

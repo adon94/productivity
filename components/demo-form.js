@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Button } from '@/components/button';
 
 export default function DemoForm() {
   const [email, setEmail] = useState('')
@@ -19,9 +20,9 @@ export default function DemoForm() {
   }
   return (
     <div className="grid grid-cols-1 gap-y-10 mb-32">
-      <input onChange={updateEmail} value={email} placeholder='Email' type="email" className="form-input px-4 py-3 rounded"></input>
+      <textarea onChange={updateEmail} value={email} placeholder='Write here...' className="form-input px-4 py-3 rounded"></textarea>
       {/* <textarea placeholder='Content' className="form-textarea px-4 py-3 rounded"></textarea> */}
-      <button className="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-3 rounded" type="button" onClick={sendMessageRequest}>Send demo</button>
+      <Button>Next</Button>
     </div>
   )
 }
